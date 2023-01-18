@@ -1,76 +1,20 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pet Online - Reserve já o banho do seu Pet</title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/starter-template/">
-    <link href="/static/bootstrap.min.css" rel="stylesheet">
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-
-    </style>
-    <!-- Custom styles for this template -->
-    <link href="/static/starter-template.css" rel="stylesheet">
-  </head>
-  <body>
+{% extends "inicio.html" %}
+{% load bootstrap5 %}
+{% block principal %}
+<h1>Fale Conosco</h1>
+<p>
+    Envie uma mensagem através do Formulário abaixo ou ligue para o telefone {{ telefone }} 
+    falando com o responsável {{ responsavel|upper }}.
+</p>
+{% if sucesso %}
+<p class="alert alert-success">Mensagem Enviada com Sucesso</p>
+{% else %}
+<form action="" method="post" novalidate>
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <hr>
+    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+</form>
+{% endif %}
+{% endblock %}
     
-    <div class="col-lg-8 mx-auto p-4 py-md-5">
-      <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
-        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-            <span class="fs-4">Pet Online</span>
-        </a>
-      </header>
-    
-    <main>
-        <h1>Fale Conosco</h1>
-        <p>
-            Envie uma mensagem através do Formulário abaixo ou ligue para o telefone {{telefone}} 
-            falando com o responsável {{responsavel|upper}}.
-        </p>
-        <form action="" method="post">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="id_nome">Nome</label>
-                        <input type="text" class="form-control" id="id_nome" name="nome">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="id_nome">Email</label>
-                    <input type="email" class="form-control" id="id_nome" name="email">
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label for="id_nome">Mensagem</label>
-                    <textarea type="mensagem" id="id_mensagem" cols="30" rows="10" class="form-control"></textarea>
-                </div>
-            </div>
-        </form>
-    </main>
-    <footer class="pt-5 my-5 text-muted border-top">
-        Eder Assis &middot; &copy; 2023
-    </footer>
-    </div>
-    
-    
-    <script src="/static/bootstrap.bundle.min.js"></script>
-    
-          
-    </body>
-</html>
