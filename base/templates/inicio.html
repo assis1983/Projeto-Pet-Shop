@@ -36,7 +36,7 @@
     <main>
       {% block principal %}
       <h1>Reserve já o Banho do seu Pet</h1>
-      
+      <a href="{% url 'reserva:criar_reserva' %}" class="btn btn-primary">Fazer Reserva</a>
       {% endblock %}
     </main>
     <footer class="pt-5 my-5 text-muted border-top">
