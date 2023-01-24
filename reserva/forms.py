@@ -4,12 +4,12 @@ from reserva.models import Reserva
 
 class ReservaForm(forms.ModelForm):
     
-    def clean_data(self):
+    '''def clean_data(self):
         data = self.cleaned_data['data']
         hoje = date.today()
         if data < hoje:
             raise forms.ValidationError('Não é possível realizar a reserva para datas passadas!')
-        return data
+        return data'''
 
     class Meta:
         model = Reserva
